@@ -4,6 +4,7 @@ project(examples)
 add_subdirectory(aditof-demo)
 add_subdirectory(first-frame)
 add_subdirectory(first-frame-ethernet)
+add_subdirectory(write-96tof1-eeprom)
 
 if (JETSON)
     add_subdirectory(imshow-jetson)

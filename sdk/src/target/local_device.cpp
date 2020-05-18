@@ -861,6 +861,7 @@ aditof::Status LocalDevice::waitForBuffer() {
         return aditof::Status::GENERIC_ERROR;
     } else if (r == 0) {
         LOG(WARNING) << "select timeout";
+		LOG(WARNING) << explain_select(m_implData->fd + 1, &fds, NULL, NULL, &tv);
         return aditof::Status::GENERIC_ERROR;
     }
 
