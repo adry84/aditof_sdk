@@ -40,10 +40,11 @@
 #include "write_eeprom.h"
 
 // write the ad96tof1_eeprom.bin to the eeprom 
-void WriteEeprom(std::shared_ptr<aditof::DeviceInterface> device) {
+aditof::Status WriteEeprom(std::shared_ptr<aditof::DeviceInterface> device) {
 
     std::ifstream stream("../../misc/ad96tof1_eeprom.bin", std::ios::in | std::ios::binary);
     std::vector<uint8_t> data((std::istreambuf_iterator<char>(stream)), std::istreambuf_iterator<char>());
 
-    device->writeEeprom((uint32_t)0, (uint8_t *)data.data(), (size_t)data.size());
+    aditof::Status status = device->writeEeprom((uint32_t)0, (uint8_t *)data.data(), (size_t)data.size());
+    return status;
 }

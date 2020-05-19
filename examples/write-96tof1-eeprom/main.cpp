@@ -96,6 +96,10 @@ int main() {
     }
 
     std::shared_ptr<aditof::DeviceInterface> device = camera->getDevice();
-    WriteEeprom(device);
+    status = WriteEeprom(device);
+	if (status != Status::OK) {
+        LOG(ERROR) << "Could not write Eeprom";
+        return 0;
+    }
     return 0;
 }

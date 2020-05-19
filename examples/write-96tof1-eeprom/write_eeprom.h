@@ -49,4 +49,4 @@
 #include <memory>
 
 //! WriteEeprom - write the ad96tof1_eeprom.bin to the eeprom
-void WriteEeprom(std::shared_ptr<aditof::DeviceInterface> device);
+aditof::Status WriteEeprom(std::shared_ptr<aditof::DeviceInterface> device);
